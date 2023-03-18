@@ -70,38 +70,6 @@ public class Startup
         {
             c.EnableAnnotations(enableAnnotationsForInheritance: true, enableAnnotationsForPolymorphism: true);
 
-            //if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "development")
-            //{
-            //    c.AddSecurityDefinition("oauth2",
-            //        new OpenApiSecurityScheme
-            //        {
-            //            Description = "OAuth2.0 Implicit",
-            //            Name = "oauth2",
-            //            Type = SecuritySchemeType.OAuth2,
-            //            Flows = new OpenApiOAuthFlows
-            //            {
-            //                Implicit = new OpenApiOAuthFlow
-            //                {
-            //                    AuthorizationUrl = new Uri(Configuration["SwaggerConfig:AuthorizationUrl"]),
-            //                    Scopes = new Dictionary<string, string>
-            //                    {
-            //                        { Configuration["SwaggerConfig:Scope"], "Read the api using the users access rights." }
-            //                    }
-            //                }
-            //            }
-            //        });
-            //    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-            //    {
-            //        {
-            //            new OpenApiSecurityScheme
-            //            {
-            //                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "oauth2" }
-            //            },
-            //            new[] { Configuration["SwaggerConfig:Scope"] }
-            //        }
-            //    });
-            //}
-
             var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             c.IncludeXmlComments(xmlPath);
@@ -143,9 +111,6 @@ public class Startup
                 if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "development")
                 {
                     c.DisplayRequestDuration();
-                    //        c.OAuthClientId(Configuration["SwaggerConfig:ClientId"]);
-                    //        c.OAuthUsePkce();
-                    //        c.OAuthScopeSeparator(" ");
                     c.InjectStylesheet("/assets/css/uc-style-dev.css");
                 }
                 else

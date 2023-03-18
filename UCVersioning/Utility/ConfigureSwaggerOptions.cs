@@ -62,8 +62,8 @@ public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
             Description = "UC Versioning API.",
             Contact = new OpenApiContact
             {
-                Name = "UC",
-                Url = new Uri("https://www.uc.no")
+                Name = "Git Repository",
+                Url = new Uri("https://github.com/bjornthuen/UCVersioning")
             }
         };
 
