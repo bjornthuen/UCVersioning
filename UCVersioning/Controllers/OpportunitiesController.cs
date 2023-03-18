@@ -9,7 +9,6 @@ namespace UCVersioning.Controllers;
 /// Opportunity Controller
 /// </summary>
 [Route("[controller]")]
-[ApiVersion("0.1", Deprecated = true)]
 [ApiController]
 public class OpportunitiesController : ControllerBase
 {
@@ -53,12 +52,10 @@ public class OpportunitiesController : ControllerBase
     }
 
     /// <summary>
-    /// [Deprecated]: Api have been deprecated. Available in newer version
     /// Create opportunity request
     /// </summary>
     /// <param name="request"></param>
     /// <returns></returns>
-    [Obsolete]
     [HttpPost]
     [SwaggerOperation(OperationId = "CreateOpportunity")]
     [SwaggerResponse(201, "Returned id", typeof(Guid))]
