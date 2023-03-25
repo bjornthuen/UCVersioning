@@ -80,9 +80,7 @@ public class Startup
                 foreach (var description in apiDescriptions)
                 {
                     var deprecatedText = description.IsDeprecated ? " (DEPRECATED)" : string.Empty;
-                    var isPreview = description.GroupName.Contains("pre");
-                    var previewText = isPreview ? " (PREVIEW)" : string.Empty;
-                    var text = description.IsDeprecated ? deprecatedText : isPreview ? previewText : string.Empty;
+                    var text = description.IsDeprecated ? deprecatedText : string.Empty;
 
                     c.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
                         $"{description.GroupName.ToUpperInvariant()}{text}");
