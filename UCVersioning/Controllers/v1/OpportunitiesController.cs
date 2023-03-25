@@ -9,7 +9,6 @@ namespace UCVersioning.Controllers.v1;
 /// </summary>
 [Route("v{version:apiVersion}/[controller]")]
 [ApiVersion("1.0")]
-[ApiVersion("2.0")]
 [ApiController]
 public class OpportunitiesController : ControllerBase
 {
