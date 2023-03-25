@@ -24,7 +24,6 @@ public class OpportunitiesController : ControllerBase
     /// <summary>
     /// Get Opportunities
     /// </summary>
-    /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet]
     [Route("v{version:apiVersion}/[controller]")]
