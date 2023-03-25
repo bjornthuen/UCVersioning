@@ -38,23 +38,6 @@ public class Startup
             opt.ApiVersionReader = ApiVersionReader.Combine(
                 new UrlSegmentApiVersionReader()
             );
-
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "development")
-            {
-                //Add controllers that are supposed to only be available in dev or test here:
-                //Example: 
-                // opt.Conventions.Controller<Controllers.v2.CustomersController>().HasApiVersions(new List<ApiVersion>{ new(2, 0, "pre") });
-                //----
-                opt.Conventions.Controller<Controllers.v3.OpportunitiesController>().HasApiVersions(new List<ApiVersion> { new(3, 0, "pre") });
-            }
-            else
-            {
-                //Together with the above if, the Controllers need to have no api version for production.
-                //Example: 
-                // opt.Conventions.Controller<Controllers.v2.CustomersController>().HasApiVersions(new List<ApiVersion>());
-                //----
-                opt.Conventions.Controller<Controllers.v3.OpportunitiesController>().HasApiVersions(new List<ApiVersion>());
-            }
         });
 
         services.AddVersionedApiExplorer(setup =>

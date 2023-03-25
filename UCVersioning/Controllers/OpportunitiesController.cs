@@ -20,6 +20,22 @@ public class OpportunitiesController : ControllerBase
     public OpportunitiesController()
     { }
 
+
+    /// <summary>
+    /// Get Opportunities
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet]
+    [Route("v{version:apiVersion}/[controller]")]
+    [MapToApiVersion("1.0")]
+    [SwaggerOperation(OperationId = "GetOpportunities")]
+    [SwaggerResponse(200, "Opportunities records returned", typeof(List<Guid>))]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(500)]
+    public ActionResult GetV1() => Get();
+
     /// <summary>
     /// Get Opportunities
     /// </summary>
@@ -34,6 +50,22 @@ public class OpportunitiesController : ControllerBase
     {
         return Ok(new List<Guid> { Guid.NewGuid(), Guid.NewGuid() });
     }
+
+
+    /// <summary>
+    /// Get opportunity by id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet]
+    [Route("v{version:apiVersion}/[controller]/{id:guid}")]
+    [MapToApiVersion("1.0")]
+    [SwaggerOperation(OperationId = "GetOpportunity")]
+    [SwaggerResponse(200, "Opportunity with id returned", typeof(Guid))]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(500)]
+    public ActionResult GetV1(Guid id) => Get(id);
 
     /// <summary>
     /// Get opportunity by id
